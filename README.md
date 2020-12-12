@@ -1,5 +1,6 @@
 # ControlSP
 
+Application is runnig on Firebase at https://laapp-1a7f4.firebaseapp.com/
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
 
 ## Development server
