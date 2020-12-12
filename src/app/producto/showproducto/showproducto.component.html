@@ -1,0 +1,46 @@
+<div class="mat-elevation-z8">
+     <mat-spinner [style.display]="loading ? 'block' : 'none'"></mat-spinner>
+      
+    <mat-table [style.display]="loading === false ? 'block' : 'none'" #table [dataSource]="listData">
+           
+        <!--  <mat-table #table [dataSource]="producto">-->
+               <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+               <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+               
+        <ng-container matColumnDef="title">
+                       <mat-header-cell *matHeaderCellDef>thumbnail </mat-header-cell>
+                       
+            <mat-cell *matCellDef="let listData">
+                <div *ngIf="listData">
+                    <img src="{{listData?.thumbnail}}">
+                </div>
+            </mat-cell>
+                   
+        </ng-container>
+               
+        <ng-container matColumnDef="price">
+                       <mat-header-cell *matHeaderCellDef>title </mat-header-cell>
+                       
+            <mat-cell *matCellDef="let listData">
+                <div *ngIf="listData">{{listData?.title}}</div>
+            </mat-cell>
+                   
+        </ng-container>
+               
+        <ng-container matColumnDef="thumbnail">
+                       <mat-header-cell *matHeaderCellDef>permalink </mat-header-cell>
+                       
+            <mat-cell *matCellDef="let listData">
+                <div *ngIf="listData">
+                    <a href="{{listData?.permalink}}" target="_blank">{{listData?.permalink}}</a>
+                </div>
+            </mat-cell>
+                   
+        </ng-container>
+           
+    </mat-table>
+    
+              <mat-paginator [pageSize]="5" [pageIndex]='0' [pageSizeOptions]="[5, 10, 20, 100]" showFirstLastButtons>   </mat-paginator>
+    
+</div>
+
